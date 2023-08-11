@@ -1,0 +1,18 @@
+{
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "wordpress",
+    "workspaceMount": "source=${localWorkspaceFolder}/src,target=/var/www/html,type=bind",
+    "workspaceFolder": "/var/www/html",
+    "forwardPorts": [
+        "8000",
+        "9003"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "DEVSENSE.phptools-vscode",
+                "xdebug.php-debug"
+            ]
+        }
+    }
+}

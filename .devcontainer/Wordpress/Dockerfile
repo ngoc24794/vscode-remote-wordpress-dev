@@ -12,12 +12,8 @@ COPY Wordpress/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 RUN docker-php-ext-enable xdebug && \
 apt update && \
 apt install zsh wget git fzf -y && \
-useradd -ms /usr/bin/zsh dev
-
-USER dev
-WORKDIR /home/dev
-
-RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
+usermod -s /usr/bin/zsh root && \
+sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
 -p 'z' \
 -p 'https://github.com/zsh-users/zsh-autosuggestions' \
 -p 'https://github.com/zsh-users/zsh-syntax-highlighting' \
